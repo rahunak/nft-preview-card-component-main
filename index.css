@@ -148,23 +148,61 @@
     .card {
         width: 335px;
         background-color: var(--cardBG);
-
         border-radius: 1rem;
     }
-    .card__coin_img {
+    .card__div_coin {
         margin: 15px 20px;
         width: 295px;
         border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card__eyeWraper {
+        position: relative;
+        width: 295px;
+        height: 295px;
+        cursor: pointer;
+    }
+    .eyeDiv {
+        position: absolute;
+        width: 295px;
+        height: 295px;
+        background-color: var(--Cyan);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+       
+          
+    }
+    .card__coinImg:hover {
+        opacity: 0.4;
+        /* background: rgba(0, 0, 0, 0.4); */
+    }
+    .card__coinImg {
+        position: absolute;
+        width: 295px;
+        height: 295px;
+        border-radius: 1rem;
+       
     }
 
     .titleCoin {
         font-weight: 600;
         margin: 0 20px 15px 20px;
     }
+    .titleCoin:hover {
+        color: var(--Cyan);
+        cursor: pointer;
+    }
     .description_card {
         font-weight: 300;
         margin: 0 20px 15px 20px;
     }
+
     .coin_description {
         width: 100%;
         display: flex;
@@ -205,5 +243,9 @@
         width: 2rem;
         height: 2rem;
         margin-right: 1rem;
+    }
+    #name_author:hover {
+        color: var(--Cyan);
+        cursor: pointer;
     }
 }
