@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+.attribution {
+    position: fixed;
+    bottom: 5px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+:root {
+    --fontSize: 18px;
+    --mainBG: hsl(217, 54%, 11%);
+    --cardBG: hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --White: hsl(0, 0%, 100%);
+    --SoftBlue: hsl(215, 51%, 70%);
+    --Cyan: hsl(178, 100%, 50%);
+    background-color: var(--mainBG);
+    color: var(--White);
+    font-family: Outfit;
+    font-weight: 300;
+}
+@media (max-width: 374px) {
+    body {
+        display: none;
+    }
+}
+@media (min-width: 375px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card {
+        width: 335px;
+        background-color: var(--cardBG);
+        border-radius: 1rem;
+    }
+    .card__div_coin {
+        margin: 15px 20px;
+        width: 295px;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card__eyeWraper {
+        position: relative;
+        width: 295px;
+        height: 295px;
+        cursor: pointer;
+    }
+    .eyeDiv {
+        position: absolute;
+        width: 295px;
+        height: 295px;
+        background-color: var(--Cyan);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+       
+          
+    }
+    .card__coinImg:hover {
+        opacity: 0.4;
+        /* background: rgba(0, 0, 0, 0.4); */
+    }
+    .card__coinImg {
+        position: absolute;
+        width: 295px;
+        height: 295px;
+        border-radius: 1rem;
+       
+    }
+
+    .titleCoin {
+        font-weight: 600;
+        margin: 0 20px 15px 20px;
+    }
+    .titleCoin:hover {
+        color: var(--Cyan);
+        cursor: pointer;
+    }
+    .description_card {
+        font-weight: 300;
+        margin: 0 20px 15px 20px;
+    }
+
+    .coin_description {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .coin_description__count_img {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 0 20px;
+    }
+    .coin_description__count_text {
+        color: var(--Cyan);
+    }
+    .coin_description__icon_time {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20px 0 0;
+    }
+    .profile {
+        border-top: 1px solid var(--SoftBlue);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 15px 20px;
+    }
+    .profile__image {
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+    }
+    #name_author:hover {
+        color: var(--Cyan);
+        cursor: pointer;
+    }
+}
+@media (min-width: 1440px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card {
+        width: 335px;
+        background-color: var(--cardBG);
+
+        border-radius: 1rem;
+    }
+    .card__coin_img {
+        margin: 15px 20px;
+        width: 295px;
+        border-radius: 1rem;
+    }
+
+    .titleCoin {
+        font-weight: 600;
+        margin: 0 20px 15px 20px;
+    }
+    .description_card {
+        font-weight: 300;
+        margin: 0 20px 15px 20px;
+    }
+    .coin_description {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .coin_description__count_img {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 0 20px;
+    }
+    .coin_description__count_text {
+        color: var(--Cyan);
+    }
+    .coin_description__icon_time {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20px 0 0;
+    }
+    .profile {
+        border-top: 1px solid var(--SoftBlue);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 15px 20px;
+    }
+    .profile__image {
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+    }
+}
