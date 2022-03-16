@@ -1,251 +1,206 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
-.attribution {
-    position: fixed;
-    bottom: 5px;
-    font-size: 11px;
-    text-align: center;
-}
-
-.attribution a {
-    color: hsl(228, 45%, 44%);
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 :root {
+    /* primary colors*/
+    --SoftBlue: hsl(215, 51%, 70%);
+    --Cyan: hsl(178, 100%, 50%);
+    /* neutral colors*/
     --fontSize: 18px;
     --mainBG: hsl(217, 54%, 11%);
     --cardBG: hsl(216, 50%, 16%);
     --line: hsl(215, 32%, 27%);
     --White: hsl(0, 0%, 100%);
-    --SoftBlue: hsl(215, 51%, 70%);
-    --Cyan: hsl(178, 100%, 50%);
-    background-color: var(--mainBG);
+}
+html {
+    font-size: 100%;
+}
+a {
+    text-decoration: none;
     color: var(--White);
-    font-family: Outfit;
-    font-weight: 300;
+    transition: color 0.3s;
 }
-@media (max-width: 374px) {
-    body {
+ul {
+    list-style: none;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+body {
+    font-size: 1.125rem;
+    font-family: "Outfit", sans-serif;
+    background-color: var(--mainBG);
+    min-height: 100vh;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+/* Screen reader class to hide the contant visually */
+.sr-only {
+    position: absolute !important;
+    margin: -1px !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    padding: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+main .card {
+    max-width: 21.875rem; /* =350px*/
+    height: fit-content; /* центрирование */
+    border-radius: 0.938rem; /*=15,008px*/
+    padding: 1.56rem; /*=24,96px*/
+    position: relative;
+    background-color: var(--cardBG);
+    margin: 1.25rem;
+}
+main .image {
+    position: relative;
+    width: 18.75rem; /* =300px*/
+    height: 18.75rem;
+    overflow: hidden;
+    display: block; /* bacause that is a link*/
+}
+.card .image > img {
+    border-radius: 0.625rem; /*=10px*/
+}
+.card .image::before {
+    content: url(./images/icon-view.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--Cyan); Если BG такой то не правильно отображается фон при наведении*/
+    background-color: hsl(178deg 100% 50% / 60%);
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625rem;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.card .image:hover::before {
+    opacity: 1;
+}
+/* end styling the image and the overlay */
+
+/* start styling the card body */
+.card .title {
+    margin: 1.4375rem 0 0 0.9375rem; /* i don't know */
+}
+.card .title a{
+    display: block;
+    font-size: 1.4375rem;/*=23px*/
+    color: var(--White);
+    font-weight: 600;
+    transition: color .3s;
+}
+.card .title a:hover{
+    color:var(--Cyan);
+}
+.card p{
+    font-size: 1.125rem;/*18px*/
+    color: var(--SoftBlue);
+    font-weight: 400;
+}
+
+.anchor {
+}
+.description {
+}
+.card .info {
+margin: 1.4375rem 0;/*23px*/
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+font-size: 0.938rem;/*15,008px*/
+}
+.card .info>li{
+    display: flex;
+    align-items: center;
+}
+.card .price p{
+    margin-left: 0.438rem;/*7,008px*/
+    color: var(--Cyan);
+}
+.card .time-left p{
+    margin-left: 0.438rem;/*7,008px*/
+    color: var(--SoftBlue);
+}
+/* End styling the card body */
+/* Start styling the creator part */
+.card .creator {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    padding-top:1.25rem;/*20px*/
+    margin-bottom: 0.625rem;/*10px*/
+}
+.card .creator>img{
+max-width: 2.1875rem;/*35px*/
+max-height: 2.1875rem;
+border: 1px solid var(--White);
+border-radius: 50%;
+margin-right: 1rem;
+}
+.card .creator figcaption,
+.card .creator .creator__anchor {
+    font-size: 1rem;
+    font-weight: 400;
+}
+.card .creator figcaption p{
+    display: inline;
+    color: var(--SoftBlue);
+}
+.card .creator .creator__anchor:hover{
+    color: var(--Cyan);
+}
+/* End styling the creator part */
+/* Start styling the attriution */
+.attribution {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.875rem;/*14px*/
+    line-height: 1.6;
+    text-align: center;
+    color: hsl(0deg, 0%, 100%/64%); /* how to decipher it */
+    width: 100%;
+}
+
+.attribution a {
+    color: var(--SoftBlue);
+}
+.attribution a:hover {
+    color: var(--Cyan);
+    transition: color 0.3s;
+}
+
+/* End styling the attribution */
+@media screen and (max-width: 30rem) {
+    body{
+        font-size: 0.94rem;/*=15,04px*/
+    }
+    .attribution{
         display: none;
-    }
-}
-@media (min-width: 375px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .card {
-        width: 335px;
-        background-color: var(--cardBG);
-        border-radius: 1rem;
-    }
-    .card__div_coin {
-        margin: 15px 20px;
-        width: 295px;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .card__eyeWraper {
-        position: relative;
-        width: 295px;
-        height: 295px;
-        cursor: pointer;
-    }
-    .eyeDiv {
-        position: absolute;
-        width: 295px;
-        height: 295px;
-        background-color: var(--Cyan);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 1rem;
-       
-          
-    }
-    .card__coinImg:hover {
-        opacity: 0.4;
-        /* background: rgba(0, 0, 0, 0.4); */
-    }
-    .card__coinImg {
-        position: absolute;
-        width: 295px;
-        height: 295px;
-        border-radius: 1rem;
-       
-    }
-
-    .titleCoin {
-        font-weight: 600;
-        margin: 0 20px 15px 20px;
-    }
-    .titleCoin:hover {
-        color: var(--Cyan);
-        cursor: pointer;
-    }
-    .description_card {
-        font-weight: 300;
-        margin: 0 20px 15px 20px;
-    }
-
-    .coin_description {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-    .coin_description__count_img {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0 0 0 20px;
-    }
-    .coin_description__count_text {
-        color: var(--Cyan);
-    }
-    .coin_description__icon_time {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0 20px 0 0;
-    }
-    .profile {
-        border-top: 1px solid var(--SoftBlue);
-
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 15px 20px;
-    }
-    .profile__image {
-        border: 2px solid white;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        margin-right: 1rem;
-    }
-    #name_author:hover {
-        color: var(--Cyan);
-        cursor: pointer;
-    }
-}
-@media (min-width: 1440px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .card {
-        width: 335px;
-        background-color: var(--cardBG);
-        border-radius: 1rem;
-    }
-    .card__div_coin {
-        margin: 15px 20px;
-        width: 295px;
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .card__eyeWraper {
-        position: relative;
-        width: 295px;
-        height: 295px;
-        cursor: pointer;
-    }
-    .eyeDiv {
-        position: absolute;
-        width: 295px;
-        height: 295px;
-        background-color: var(--Cyan);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 1rem;
-       
-          
-    }
-    .card__coinImg:hover {
-        opacity: 0.4;
-        /* background: rgba(0, 0, 0, 0.4); */
-    }
-    .card__coinImg {
-        position: absolute;
-        width: 295px;
-        height: 295px;
-        border-radius: 1rem;
-       
-    }
-
-    .titleCoin {
-        font-weight: 600;
-        margin: 0 20px 15px 20px;
-    }
-    .titleCoin:hover {
-        color: var(--Cyan);
-        cursor: pointer;
-    }
-    .description_card {
-        font-weight: 300;
-        margin: 0 20px 15px 20px;
-    }
-
-    .coin_description {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-    .coin_description__count_img {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0 0 0 20px;
-    }
-    .coin_description__count_text {
-        color: var(--Cyan);
-    }
-    .coin_description__icon_time {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0 20px 0 0;
-    }
-    .profile {
-        border-top: 1px solid var(--SoftBlue);
-
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 15px 20px;
-    }
-    .profile__image {
-        border: 2px solid white;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        margin-right: 1rem;
-    }
-    #name_author:hover {
-        color: var(--Cyan);
-        cursor: pointer;
     }
 }
